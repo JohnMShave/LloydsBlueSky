@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		D1F652982D2F26DF00FF79CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1F6527F2D2F26DD00FF79CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1F652862D2F26DD00FF79CA;
+			remoteInfo = LloydsBlueSky;
+		};
+		D1F652A22D2F26DF00FF79CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1F6527F2D2F26DD00FF79CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1F652862D2F26DD00FF79CA;
+			remoteInfo = LloydsBlueSky;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D1F652872D2F26DD00FF79CA /* LloydsBlueSky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LloydsBlueSky.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1F652972D2F26DF00FF79CA /* LloydsBlueSkyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LloydsBlueSkyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1F652A12D2F26DF00FF79CA /* LloydsBlueSkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LloydsBlueSkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D1F652892D2F26DD00FF79CA /* LloydsBlueSky */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LloydsBlueSky;
+			sourceTree = "<group>";
+		};
+		D1F6529A2D2F26DF00FF79CA /* LloydsBlueSkyTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LloydsBlueSkyTests;
+			sourceTree = "<group>";
+		};
+		D1F652A42D2F26DF00FF79CA /* LloydsBlueSkyUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LloydsBlueSkyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D1F652842D2F26DD00FF79CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1F652942D2F26DF00FF79CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1F6529E2D2F26DF00FF79CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D1F6527E2D2F26DD00FF79CA = {
+			isa = PBXGroup;
+			children = (
+				D1F652892D2F26DD00FF79CA /* LloydsBlueSky */,
+				D1F6529A2D2F26DF00FF79CA /* LloydsBlueSkyTests */,
+				D1F652A42D2F26DF00FF79CA /* LloydsBlueSkyUITests */,
+				D1F652882D2F26DD00FF79CA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D1F652882D2F26DD00FF79CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1F652872D2F26DD00FF79CA /* LloydsBlueSky.app */,
+				D1F652972D2F26DF00FF79CA /* LloydsBlueSkyTests.xctest */,
+				D1F652A12D2F26DF00FF79CA /* LloydsBlueSkyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D1F652862D2F26DD00FF79CA /* LloydsBlueSky */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1F652AB2D2F26DF00FF79CA /* Build configuration list for PBXNativeTarget "LloydsBlueSky" */;
+			buildPhases = (
+				D1F652832D2F26DD00FF79CA /* Sources */,
+				D1F652842D2F26DD00FF79CA /* Frameworks */,
+				D1F652852D2F26DD00FF79CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D1F652892D2F26DD00FF79CA /* LloydsBlueSky */,
+			);
+			name = LloydsBlueSky;
+			packageProductDependencies = (
+			);
+			productName = LloydsBlueSky;
+			productReference = D1F652872D2F26DD00FF79CA /* LloydsBlueSky.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D1F652962D2F26DF00FF79CA /* LloydsBlueSkyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1F652AE2D2F26DF00FF79CA /* Build configuration list for PBXNativeTarget "LloydsBlueSkyTests" */;
+			buildPhases = (
+				D1F652932D2F26DF00FF79CA /* Sources */,
+				D1F652942D2F26DF00FF79CA /* Frameworks */,
+				D1F652952D2F26DF00FF79CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1F652992D2F26DF00FF79CA /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D1F6529A2D2F26DF00FF79CA /* LloydsBlueSkyTests */,
+			);
+			name = LloydsBlueSkyTests;
+			packageProductDependencies = (
+			);
+			productName = LloydsBlueSkyTests;
+			productReference = D1F652972D2F26DF00FF79CA /* LloydsBlueSkyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D1F652A02D2F26DF00FF79CA /* LloydsBlueSkyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1F652B12D2F26DF00FF79CA /* Build configuration list for PBXNativeTarget "LloydsBlueSkyUITests" */;
+			buildPhases = (
+				D1F6529D2D2F26DF00FF79CA /* Sources */,
+				D1F6529E2D2F26DF00FF79CA /* Frameworks */,
+				D1F6529F2D2F26DF00FF79CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1F652A32D2F26DF00FF79CA /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D1F652A42D2F26DF00FF79CA /* LloydsBlueSkyUITests */,
+			);
+			name = LloydsBlueSkyUITests;
+			packageProductDependencies = (
+			);
+			productName = LloydsBlueSkyUITests;
+			productReference = D1F652A12D2F26DF00FF79CA /* LloydsBlueSkyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D1F6527F2D2F26DD00FF79CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					D1F652862D2F26DD00FF79CA = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					D1F652962D2F26DF00FF79CA = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = D1F652862D2F26DD00FF79CA;
+					};
+					D1F652A02D2F26DF00FF79CA = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = D1F652862D2F26DD00FF79CA;
+					};
+				};
+			};
+			buildConfigurationList = D1F652822D2F26DD00FF79CA /* Build configuration list for PBXProject "LloydsBlueSky" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D1F6527E2D2F26DD00FF79CA;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D1F652882D2F26DD00FF79CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D1F652862D2F26DD00FF79CA /* LloydsBlueSky */,
+				D1F652962D2F26DF00FF79CA /* LloydsBlueSkyTests */,
+				D1F652A02D2F26DF00FF79CA /* LloydsBlueSkyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D1F652852D2F26DD00FF79CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1F652952D2F26DF00FF79CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1F6529F2D2F26DF00FF79CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D1F652832D2F26DD00FF79CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1F652932D2F26DF00FF79CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1F6529D2D2F26DF00FF79CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1F652992D2F26DF00FF79CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1F652862D2F26DD00FF79CA /* LloydsBlueSky */;
+			targetProxy = D1F652982D2F26DF00FF79CA /* PBXContainerItemProxy */;
+		};
+		D1F652A32D2F26DF00FF79CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1F652862D2F26DD00FF79CA /* LloydsBlueSky */;
+			targetProxy = D1F652A22D2F26DF00FF79CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D1F652A92D2F26DF00FF79CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D1F652AA2D2F26DF00FF79CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D1F652AC2D2F26DF00FF79CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LloydsBlueSky/Preview Content\"";
+				DEVELOPMENT_TEAM = D6K8WPTJFG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluedotcode.LloydsBlueSky;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D1F652AD2D2F26DF00FF79CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LloydsBlueSky/Preview Content\"";
+				DEVELOPMENT_TEAM = D6K8WPTJFG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluedotcode.LloydsBlueSky;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D1F652AF2D2F26DF00FF79CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D6K8WPTJFG;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluedotcode.LloydsBlueSkyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LloydsBlueSky.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LloydsBlueSky";
+			};
+			name = Debug;
+		};
+		D1F652B02D2F26DF00FF79CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D6K8WPTJFG;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluedotcode.LloydsBlueSkyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LloydsBlueSky.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LloydsBlueSky";
+			};
+			name = Release;
+		};
+		D1F652B22D2F26DF00FF79CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D6K8WPTJFG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluedotcode.LloydsBlueSkyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LloydsBlueSky;
+			};
+			name = Debug;
+		};
+		D1F652B32D2F26DF00FF79CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D6K8WPTJFG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluedotcode.LloydsBlueSkyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LloydsBlueSky;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D1F652822D2F26DD00FF79CA /* Build configuration list for PBXProject "LloydsBlueSky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1F652A92D2F26DF00FF79CA /* Debug */,
+				D1F652AA2D2F26DF00FF79CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1F652AB2D2F26DF00FF79CA /* Build configuration list for PBXNativeTarget "LloydsBlueSky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1F652AC2D2F26DF00FF79CA /* Debug */,
+				D1F652AD2D2F26DF00FF79CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1F652AE2D2F26DF00FF79CA /* Build configuration list for PBXNativeTarget "LloydsBlueSkyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1F652AF2D2F26DF00FF79CA /* Debug */,
+				D1F652B02D2F26DF00FF79CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1F652B12D2F26DF00FF79CA /* Build configuration list for PBXNativeTarget "LloydsBlueSkyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1F652B22D2F26DF00FF79CA /* Debug */,
+				D1F652B32D2F26DF00FF79CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D1F6527F2D2F26DD00FF79CA /* Project object */;
+}
