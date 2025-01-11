@@ -9,36 +9,36 @@ import Foundation
 import SwiftUI
 
 class Coordinator: ObservableObject {
-	@Published var path: NavigationPath = NavigationPath()
-	@Published var sheet: Sheet?
+	@Published var navigationPath = NavigationPath()
 	@Published var fullScreenCover: FullScreenCover?
+	@Published var sheet: Sheet?
 	
-	func push(screen: Screen) {
-		path.append(screen)
+	func pushScreen(_ screen: Screen) {
+		navigationPath.append(screen)
 	}
 	
-	func pop() {
-		path.removeLast()
+	func popScreen() {
+		navigationPath.removeLast()
 	}
 	
-	func popToRoot() {
-		path.removeLast(path.count)
+	func popToRootScreen() {
+		navigationPath.removeLast(navigationPath.count)
 	}
 	
-	func presentSheet(_ sheet: Sheet) {
-		self.sheet = sheet
+	func presentSheet(_ newSheet: Sheet) {
+		sheet = newSheet
 	}
-	
-	func presentFullScreenCover(_ cover: FullScreenCover) {
-		self.fullScreenCover = cover
-	}
-	
+
 	func dismissSheet() {
-		self.sheet = nil
+		sheet = nil
 	}
-	
+
+	func presentFullScreenCover(_ cover: FullScreenCover) {
+		fullScreenCover = cover
+	}
+		
 	func dismissCover() {
-		self.fullScreenCover = nil
+		fullScreenCover = nil
 	}
 	
 	@ViewBuilder
@@ -47,7 +47,7 @@ class Coordinator: ObservableObject {
 	}
 	
 	@ViewBuilder
-	func buildSheet(sheet: Sheet) -> some View {
+	func buildSheet(_ sheet: Sheet) -> some View {
 		sheet.viewType()
 	}
 	

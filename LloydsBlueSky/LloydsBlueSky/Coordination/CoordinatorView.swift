@@ -9,20 +9,22 @@ import SwiftUI
 
 struct CoordinatorView: View {
 	@StateObject private var coordinator = Coordinator()
+	@StateObject private var forecastContext = ForecastContext()
 	
 	var body: some View {
-		NavigationStack(path: $coordinator.path) {
+		NavigationStack(path: $coordinator.navigationPath) {
 			coordinator.buildScreen(.locationSummary)
 				.navigationDestination(for: Screen.self) { screen in
 					coordinator.buildScreen(screen)
 				}
 				.sheet(item: $coordinator.sheet) { sheet in
-					coordinator.buildSheet(sheet: sheet)
+					coordinator.buildSheet(sheet)
 				}
 				.fullScreenCover(item: $coordinator.fullScreenCover) { item in
 					coordinator.buildFullScreenCover(item)
 				}
 		}
 		.environmentObject(coordinator)
+		.environmentObject(forecastContext)
 	}
 }

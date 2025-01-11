@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct HourlyView: View {
+//	@EnvironmentObject private var coordinator: Coordinator
+//	@EnvironmentObject private var forecastContext: ForecastContext
+
 	var body: some View {
-		Text("Hourly View")
-			.font(.title)
-			.padding()
+		VStack {
+//			Text("\(forecastContext.locationName) - Summary")
+//				.font(.title)
+//				.padding()
+			Text("Tuesday")
+				.font(.title)
+				.padding()
+		}
 	}
 }

@@ -7,10 +7,15 @@
 
 import SwiftUI
 
-struct DailyView: View {
-	var body: some View {
-		Text("Daily View")
-			.font(.title)
-			.padding()
-	}
-}
+//struct DailyView: View {
+//	@EnvironmentObject private var coordinator: Coordinator
+//	@EnvironmentObject private var forecastContext: ForecastContext
+//
+//	var body: some View {
+//		VStack {
+//			Text("\(forecastContext.locationName) - Summary")
+//				.font(.title)
+//				.padding()
+//		}
+//	}
+//}
