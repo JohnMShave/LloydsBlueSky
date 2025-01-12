@@ -16,7 +16,7 @@ struct LocationSummaryView: View {
 		VStack {
 			Text("\(forecastContext.locationName) - Summary")
 			Spacer()
-			SummaryView()
+			SummaryView(title: "Current", tempHigh: 20, tempLow: 10)
 			Spacer()
 			dailyViewButton
 		}
@@ -25,7 +25,7 @@ struct LocationSummaryView: View {
 	
 	var dailyViewButton: some View {
 		Button {
-			coordinator.presentPage(.daily, withStyle: .screen)
+			coordinator.presentPageType(.daily, usingStyle: .screen)
 		} label: {
 			Text("Daily Summary")
 				.font(.title3)

@@ -9,15 +9,15 @@ import SwiftUI
 
 struct SummaryView: View {
 	
-	let title: String = "Bristol"
-	let tempHigh: Int = 20
-	let tempLow: Int = 10
+	let title: String
+	let tempHigh: Int
+	let tempLow: Int
 	
 	var body: some View {
 		HStack {
 			Spacer()
 			Text("\(title)")
-				.font(.title)
+				.font(.title2)
 			Spacer()
 			VStack {
 				Text("High")

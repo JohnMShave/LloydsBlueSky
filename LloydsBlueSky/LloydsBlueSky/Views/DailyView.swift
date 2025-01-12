@@ -7,21 +7,35 @@
 
 import SwiftUI
 
+struct Day: Identifiable {
+	let name: String
+	var id = UUID()
+}
+
 struct DailyView: View {
 	@EnvironmentObject private var coordinator: Coordinator
 	@EnvironmentObject private var forecastContext: ForecastContext
 	
-	let days: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+	let days: [Day] = [
+		Day(name: "Monday"),
+		Day(name: "Tuesday"),
+		Day(name: "Wednesday"),
+		Day(name: "Thursday"),
+		Day(name: "Friday"),
+		Day(name: "Saturday"),
+		Day(name: "Sunday"),
+	]
 
 	var body: some View {
 		VStack {
-			Text("\(forecastContext.locationName) - Summary")
 			Spacer()
 			List {
-				ForEach(days.count) { day in
-					NavigationLink(destination: HourlyView(day: day)) {
-						Text("\(day)")
-					}
+				ForEach(days) { day in
+					SummaryView(title: day.name, tempHigh: 20, tempLow: 10)
+						.listItemTapable {
+							coordinator.presentPageType(.hourly(day: day.name), usingStyle: .cover)
+						}
+						.listRowSeparator(.hidden)
 				}
 			}
 		}

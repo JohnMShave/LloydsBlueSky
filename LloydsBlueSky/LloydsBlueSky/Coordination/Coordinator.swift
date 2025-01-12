@@ -21,7 +21,7 @@ class Coordinator: ObservableObject {
 		navigationPath.removeLast(navigationPath.count)
 	}
 	
-	func presentPage(_ pageType: PageType, withStyle style: PresentationStyle) {
+	func presentPageType(_ pageType: PageType, usingStyle style: PresentationStyle) {
 		presentPage(.init(type: pageType, style: style))
 	}
 			
@@ -64,17 +64,13 @@ class Coordinator: ObservableObject {
 	}
 }
 
-extension Coordinator {	
+extension Coordinator {
 	struct Page: Hashable, Identifiable {
 		var type: PageType
 		var style: PresentationStyle
 		
 		var id: String { type.id }
 	}
-}
-
-extension PageType: Identifiable {
-	var id: String { rawValue }
 }
 
 enum PresentationStyle: Hashable {
