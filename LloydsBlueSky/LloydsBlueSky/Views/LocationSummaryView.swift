@@ -16,6 +16,8 @@ struct LocationSummaryView: View {
 		VStack {
 			Text("\(forecastContext.locationName) - Summary")
 			Spacer()
+			SummaryView()
+			Spacer()
 			dailyViewButton
 		}
 		.padding(16)
