@@ -33,6 +33,12 @@ protocol NetworkResource {
 
 protocol NetworkJSONModelResource: NetworkResource, JSONModelResource {}
 
+extension NetworkJSONModelResource {
+	func obtainModel() -> Model {
+		NetworkJSONModelRepository().modelWithResource(self)!
+	}
+}
+
 struct LatLonResource: NetworkJSONModelResource {
 	typealias Model = LatLon
 	
@@ -40,10 +46,6 @@ struct LatLonResource: NetworkJSONModelResource {
 
 	var url: URL? {
 		URL(string: "http://api.openweathermap.org/geo/1.0/direct?q=\(locationName)&limit=5&appid=\(Network.apiKey)")
-	}
-
-	func obtainModel() -> LatLon {
-		NetworkJSONModelRepository.modelWithResource(self)!
 	}
 }
 
@@ -76,10 +78,6 @@ class ViewModel {
 
 class NetworkJSONModelRepository<Resource: NetworkJSONModelResource>: Repository {
 	typealias RepoResource = Resource
-	
-	static func modelWithResource(_ resource: Resource) -> RepoResource.Model? {
-		NetworkJSONModelRepository().modelWithResource(resource)
-	}
 	
 	func convertJSONToData<T: Encodable>(item: T) -> Data? {
 			do {
