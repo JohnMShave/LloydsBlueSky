@@ -13,15 +13,15 @@ struct CoordinatorView: View {
 	
 	var body: some View {
 		NavigationStack(path: $coordinator.navigationPath) {
-			coordinator.buildScreen(.locationSummary)
-				.navigationDestination(for: Screen.self) { screen in
-					coordinator.buildScreen(screen)
+			coordinator.buildScreenWithPageType(PageType.locationSummary)
+				.navigationDestination(for: PageType.self) { type in
+					coordinator.buildScreenWithPageType(type)
 				}
 				.sheet(item: $coordinator.sheet) { sheet in
-					coordinator.buildSheet(sheet)
+					coordinator.buildSheetWithPageType(sheet.type)
 				}
-				.fullScreenCover(item: $coordinator.fullScreenCover) { item in
-					coordinator.buildFullScreenCover(item)
+				.fullScreenCover(item: $coordinator.cover) { cover in
+					coordinator.buildCoverWithPageType(cover.type)
 				}
 		}
 		.environmentObject(coordinator)

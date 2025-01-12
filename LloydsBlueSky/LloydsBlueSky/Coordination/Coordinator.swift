@@ -8,15 +8,11 @@
 import Foundation
 import SwiftUI
 
-class Coordinator: ObservableObject {
+class Coordinator: ObservableObject {	
 	@Published var navigationPath = NavigationPath()
-	@Published var fullScreenCover: FullScreenCover?
-	@Published var sheet: Sheet?
-	
-	func pushScreen(_ screen: Screen) {
-		navigationPath.append(screen)
-	}
-	
+	@Published var cover: Page?
+	@Published var sheet: Page?
+
 	func popScreen() {
 		navigationPath.removeLast()
 	}
@@ -25,34 +21,62 @@ class Coordinator: ObservableObject {
 		navigationPath.removeLast(navigationPath.count)
 	}
 	
-	func presentSheet(_ newSheet: Sheet) {
-		sheet = newSheet
+	func presentPage(_ pageType: PageType, withStyle style: PresentationStyle) {
+		presentPage(.init(type: pageType, style: style))
 	}
-
+			
 	func dismissSheet() {
 		sheet = nil
 	}
-
-	func presentFullScreenCover(_ cover: FullScreenCover) {
-		fullScreenCover = cover
-	}
 		
 	func dismissCover() {
-		fullScreenCover = nil
+		cover = nil
 	}
 	
 	@ViewBuilder
-	func buildScreen(_ screen: Screen) -> some View {
-		screen.viewType()
+	func buildScreenWithPageType(_ pageType: PageType) -> some View {
+		pageType.viewType()
 	}
 	
 	@ViewBuilder
-	func buildSheet(_ sheet: Sheet) -> some View {
-		sheet.viewType()
+	func buildSheetWithPageType(_ pageType: PageType) -> some View {
+		pageType.viewType()
 	}
 	
 	@ViewBuilder
-	func buildFullScreenCover(_ cover: FullScreenCover) -> some View {
-		cover.viewType()
+	func buildCoverWithPageType(_ pageType: PageType) -> some View {
+		pageType.viewType()
 	}
+	
+	private func presentPage(_ page: Page) {
+		switch page.style {
+		case .screen:
+			pushScreen(page.type)
+		case .cover:
+			cover = page
+		case .sheet:
+			sheet = page
+		}
+	}
+	
+	private func pushScreen(_ page: PageType) {
+		navigationPath.append(page)
+	}
+}
+
+extension Coordinator {	
+	struct Page: Hashable, Identifiable {
+		var type: PageType
+		var style: PresentationStyle
+		
+		var id: String { type.id }
+	}
+}
+
+extension PageType: Identifiable {
+	var id: String { rawValue }
+}
+
+enum PresentationStyle: Hashable {
+	case screen, cover, sheet
 }
