@@ -41,6 +41,14 @@ enum PageType: Identifiable, Hashable {
 		}
 	}
 	
+	/// We could just make PageType a String enum and use rawValue here but we would also need to
+	/// add an optional dayName to our ForecastContext structure a. That would kinda make sense for
+	/// that particular use case but chances are in a less contrived, real world example you'd need the
+	/// ability to inject various other types into the different pages that wouldn't really make sense in
+	/// the forecastContext and more generally in other flows that had different contexts.
+	/// Nearly always regret constraining an enum to a type like String or Int unless it's very basic.
+	/// Associated types provide so much more power with enums and the desired respective String or
+	/// Int or whatever can always be added trivially, as below.
 	var id: String {
 		switch self {
 		case .locationSummary: "locationSummary"
