@@ -29,9 +29,30 @@
 		D1F652A12D2F26DF00FF79CA /* LloydsBlueSkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LloydsBlueSkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D1EF8F532D347B3100EB2FB3 /* Exceptions for "LloydsBlueSky" folder in "LloydsBlueSky" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Network/LocationResponse.json,
+			);
+			target = D1F652862D2F26DD00FF79CA /* LloydsBlueSky */;
+		};
+		D1EF8F542D347B3100EB2FB3 /* Exceptions for "LloydsBlueSky" folder in "LloydsBlueSkyTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Network/LocationResponse.json,
+			);
+			target = D1F652962D2F26DF00FF79CA /* LloydsBlueSkyTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D1F652892D2F26DD00FF79CA /* LloydsBlueSky */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D1EF8F532D347B3100EB2FB3 /* Exceptions for "LloydsBlueSky" folder in "LloydsBlueSky" target */,
+				D1EF8F542D347B3100EB2FB3 /* Exceptions for "LloydsBlueSky" folder in "LloydsBlueSkyTests" target */,
+			);
 			path = LloydsBlueSky;
 			sourceTree = "<group>";
 		};
