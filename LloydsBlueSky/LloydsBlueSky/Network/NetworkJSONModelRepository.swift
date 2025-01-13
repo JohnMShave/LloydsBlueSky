@@ -35,9 +35,3 @@ class NetworkJSONModelRepository<Resource: NetworkJSONModelRepoResource>: Reposi
 		resource.modelWithJSONData(convertJSONToData(item: json)!)
 	}
 }
-
-extension NetworkJSONModelRepoResource {
-	func obtainModel() -> Model {
-		NetworkJSONModelRepository().modelWithResource(self)!
-	}
-}

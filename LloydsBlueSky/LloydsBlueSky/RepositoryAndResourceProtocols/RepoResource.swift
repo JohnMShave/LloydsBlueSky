@@ -22,14 +22,3 @@ extension JSONModelRepoResource {
 		try? JSONDecoder().decode(Model.self, from: jsonData)
 	}
 }
-
-protocol NetworkResource {
-	var url: URL? { get }
-	
-	/// With more time I would add the following and build the URLs accordingly inside implementing Resource types -
-	/// var requestMethod (`.get`, `.put` etc)
-	/// var headerFields[String: String]
-	/// var queryItems: [URLQueryItem]?
-}
-
-protocol NetworkJSONModelRepoResource: NetworkResource, JSONModelRepoResource {}
