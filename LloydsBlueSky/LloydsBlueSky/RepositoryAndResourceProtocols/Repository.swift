@@ -11,4 +11,3 @@ protocol Repository {
 	
 	func modelWithResource(_ resource: Resource) -> Model?
 }
-

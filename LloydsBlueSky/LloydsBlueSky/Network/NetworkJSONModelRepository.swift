@@ -32,7 +32,7 @@ class NetworkJSONModelRepository<Resource: NetworkJSONModelRepoResource>: Reposi
 	"""
 	
 	func modelWithResource(_ resource: Resource) -> RepoResource.Model? {
-		try! JSONDecoder().decode(Resource.Model.self, from: convertJSONToData(item: json)!)
+		resource.modelWithJSONData(convertJSONToData(item: json)!)
 	}
 }
 

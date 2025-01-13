@@ -12,6 +12,8 @@ struct LocationSummaryView: View {
 	@EnvironmentObject private var coordinator: Coordinator
 	@EnvironmentObject private var forecastContext: ForecastContext
 	
+	@ObservedObject private var viewModel = LocationSummaryViewModel()
+	
 	var body: some View {
 		VStack {
 			Text("\(forecastContext.locationName) - Summary")

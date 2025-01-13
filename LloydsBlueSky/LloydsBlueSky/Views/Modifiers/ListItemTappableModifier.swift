@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// A view modifier which can be used to ensure the full width of a list item is tappable by
+/// accounting for its internal content alignment
 struct ListItemTappableModifier: ViewModifier {
 	enum Alignment {
 		case left
