@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DailyForecast: Decodable {
+struct DailyForecast: Equatable, Decodable {
 	var minTemp: Double
 	var maxTemp: Double
 }

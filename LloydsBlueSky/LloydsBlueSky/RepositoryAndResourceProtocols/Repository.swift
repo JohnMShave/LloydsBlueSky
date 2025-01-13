@@ -9,5 +9,5 @@ protocol Repository {
 	associatedtype Resource: RepoResource
 	typealias Model = Resource.Model
 	
-	func modelWithResource(_ resource: Resource) -> Model?
+	func modelWithResource(_ resource: Resource) async throws -> Model
 }

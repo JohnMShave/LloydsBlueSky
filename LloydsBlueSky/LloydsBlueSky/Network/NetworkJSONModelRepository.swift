@@ -10,28 +10,47 @@ import Foundation
 class NetworkJSONModelRepository<Resource: NetworkJSONModelRepoResource>: Repository {
 	typealias RepoResource = Resource
 	
-	func convertJSONToData<T: Encodable>(item: T) -> Data? {
-			do {
-					let encodedJSON = try JSONEncoder().encode(item)
-					return encodedJSON
-			} catch {
-					return nil
-			}
-	}
+	private let session = URLSession.shared
 	
-	let json = """
-		[
-			{
-				"name": "London",
-				"lat": 37.1289771,
-				"lon": -84.0832646,
-				"country": "US",
-				"state": "Kentucky"
-			}
-		]
-	"""
-	
-	func modelWithResource(_ resource: Resource) -> RepoResource.Model? {
-		resource.modelWithJSONData(convertJSONToData(item: json)!)
+	func modelWithResource(_ resource: Resource) async throws -> RepoResource.Model {
+		guard let request = resource.request else { throw NetworkError.invalidURL }
+		
+		guard let (data, response) = try await session.data(for: request) as? (Data, HTTPURLResponse),
+					response.isValidStatusCode
+		else {
+			throw NetworkError.networkError
+		}
+		
+		guard let model = resource.modelWithJSONData(data) else {
+			throw NetworkError.invalidResponse
+		}
+		
+		return model
 	}
 }
+
+private extension HTTPURLResponse {
+	var isValidStatusCode: Bool { 200..<300 ~= statusCode }
+}
+
+//	func convertJSONToData<T: Encodable>(item: T) -> Data? {
+//			do {
+//					let encodedJSON = try JSONEncoder().encode(item)
+//					return encodedJSON
+//			} catch {
+//					return nil
+//			}
+//	}
+//
+//	let json = """
+//		[
+//			{
+//				"name": "London",
+//				"lat": 37.1289771,
+//				"lon": -84.0832646,
+//				"country": "US",
+//				"state": "Kentucky"
+//			}
+//		]
+//	"""
+//	resource.modelWithJSONData(convertJSONToData(item: json)!)

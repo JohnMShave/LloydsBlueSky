@@ -10,7 +10,7 @@ import Foundation
 protocol RepoResource {
 	associatedtype Model
 	
-	func obtainModel() -> Model
+	func obtainModel() async throws -> Model
 }
 
 protocol JSONModelRepoResource: RepoResource where Model: Decodable {

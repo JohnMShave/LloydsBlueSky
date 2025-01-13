@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HourlyForecast: Decodable {
+struct HourlyForecast: Equatable, Decodable {
 	var temp: Double
 	var feelsLike: Double
 	var clouds: Int

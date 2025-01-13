@@ -7,6 +7,33 @@
 
 import Foundation
 
+enum FetchState<Model: Equatable>: Equatable {
+	case idle
+	case fetching(resource: any RepoResource)
+	case fetched(resource: any RepoResource, model: Model)
+	case failed(resource: any RepoResource, error: any Error)
+	
+	static func ==(lhs: FetchState, rhs: FetchState) -> Bool {
+		switch (lhs, rhs) {
+		case (.fetching, .fetching), (.failed, .failed):
+			return true
+		case (let .fetched(_, modelLhs), let .fetched(_, modelRhs)):
+			return modelLhs == modelRhs
+		default:
+			return false
+		}
+	}
+	
+	var model: Model? {
+		switch self {
+		case .fetched(resource: let resource, model: let model):
+			return model
+		default:
+			return nil
+		}
+	}
+}
+
 /// By templating not only the resource but the repository, we have really concise & readable code in our
 /// viewModel which can be very easily mocked by mocking the resource which is trivial to setup.
 ///
@@ -22,8 +49,14 @@ class LocationSummaryViewModel: ObservableObject {
 	let latLonResource: any RepoResource
 	let dailyResource: any RepoResource
 	
-	var latLon: LatLon?
+	@Published var latLonFetchState = FetchState<LatLon>.idle
+	@Published var dailyForecastsFetchState = FetchState<[DailyForecast]>.idle
 	
+	var summary: (tempHigh: Double, tempLow: Double)? {
+		guard let dailyForecast = dailyForecastsFetchState.model?.first else { return nil }
+		return (dailyForecast.maxTemp, dailyForecast.minTemp)
+	}
+		
 	init(latLonResource: any RepoResource = LatLonResource(locationName: "London"),
 			 dailyResource: any RepoResource = DailyResource(latLon: nil)
 	) {
@@ -31,11 +64,24 @@ class LocationSummaryViewModel: ObservableObject {
 		self.dailyResource = dailyResource
 	}
 	
-	func fetchLatLon() {
-		latLon = latLonResource.obtainModel() as? LatLon
+	func getLatLon() async {
+		latLonFetchState = .fetching(resource: latLonResource)
+		do {
+			let latLon = try await latLonResource.obtainModel() as! LatLon
+			latLonFetchState = .fetched(resource: latLonResource, model: latLon)
+			await getDaily()
+		} catch {
+			latLonFetchState = .failed(resource: latLonResource, error: error)
+		}
 	}
 	
-	func daily() -> [DailyForecast]? {
-		dailyResource.obtainModel() as? [DailyForecast]
+	func getDaily() async {
+		dailyForecastsFetchState = .fetching(resource: dailyResource)
+		do {
+			let dailyForecasts = try await dailyResource.obtainModel() as! [DailyForecast]
+			dailyForecastsFetchState = .fetched(resource: dailyResource, model: dailyForecasts)
+		} catch {
+			dailyForecastsFetchState = .failed(resource: dailyResource, error: error)
+		}
 	}
 }

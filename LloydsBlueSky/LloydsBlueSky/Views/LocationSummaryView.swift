@@ -14,11 +14,16 @@ struct LocationSummaryView: View {
 	
 	@ObservedObject private var viewModel = LocationSummaryViewModel()
 	
+	@State private var summary: (tempHigh: Double, tempLow: Double)?
+	
 	var body: some View {
 		VStack {
 			Text("\(forecastContext.locationName) - Summary")
 			Spacer()
 			SummaryView(title: "Current", tempHigh: 20, tempLow: 10)
+				.onChange(of: viewModel.dailyForecastsFetchState) {
+					summary = viewModel.summary
+				}
 			Spacer()
 			dailyViewButton
 		}
