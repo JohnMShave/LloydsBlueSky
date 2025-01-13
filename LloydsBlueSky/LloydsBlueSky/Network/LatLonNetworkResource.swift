@@ -17,6 +17,7 @@ protocol Repository {
 protocol Resource {
 	associatedtype Model
 	
+	/// Example of SOLID `Liskov substitution` principle in all implementing protocols / concrete types
 	func obtainModel() -> Model
 }
 
@@ -60,16 +61,55 @@ struct MockLatLonResource: NetworkJSONModelResource {
 }
 
 
+struct DailyResource: NetworkJSONModelResource {
+	typealias Model = [DailyForecast]
 
-class ViewModel {
-	let latLonResource: any NetworkJSONModelResource
+	let latLon: LatLon?
+
+	var url: URL? {
+		guard let lat = latLon?.lat, let lon = latLon?.lon else { return nil }
+		return URL(string: "https://api.openweathermap.org/data/3.0/onecall?lat=\(lat)&lon=\(lon)&appid=\(Network.apiKey)")
+	}
+}
+
+struct MockDailyResource: NetworkJSONModelResource {
+	typealias Model = [DailyForecast]
 	
-	init(latLonResource: any NetworkJSONModelResource = LatLonResource(locationName: "London")) {
+	var url: URL?
+	
+	func obtainModel() -> [DailyForecast] {
+		[DailyForecast(minTemp: 12, maxTemp: 13)]
+	}
+}
+
+
+/// By templating not only the resource but the repository, we have really concise & readable code in our
+/// viewModel which can be very easily mocked as the resources themselves are so easy to setup.
+/// The other nice thing about this is it's very flexible, requiring minimal code changes if we wanted, for
+/// example, to replace the source of our models as we use an identical interface for all resources types.
+/// So if we wanted to replace a back end service with a baked in store or maybe one that is created
+/// having been fetched on startup, then no code changes are required in our code at this level.
+///
+/// SOLID `Dependancy inversion` principle kinda...
+class LocationSummaryViewModel {
+	let latLonResource: any Resource
+	let dailyResource: any Resource
+	
+	var latLon: LatLon?
+	
+	init(latLonResource: any Resource = LatLonResource(locationName: "London"),
+			 dailyResource: any Resource = DailyResource(latLon: nil)
+	) {
 		self.latLonResource = latLonResource
+		self.dailyResource = dailyResource
 	}
 	
-	func latLon() -> LatLon {
-		latLonResource.obtainModel() as! LatLon
+	func fetchLatLon() {
+		latLon = latLonResource.obtainModel() as? LatLon
+	}
+	
+	func daily() -> [DailyForecast]? {
+		dailyResource.obtainModel() as? [DailyForecast]
 	}
 }
 

@@ -11,16 +11,12 @@ struct LatLon: Decodable {
 	var lat, lon: Double
 }
 
-struct DailyForecast {
+struct DailyForecast: Decodable {
 	var minTemp: Double
 	var maxTemp: Double
-	var feelsLike: Double
-	var clouds: Int
-	var windSpeed: Double
-	var pop: Double
 }
 
-struct HourlyForecast {
+struct HourlyForecast: Decodable {
 	var temp: Double
 	var feelsLike: Double
 	var clouds: Int

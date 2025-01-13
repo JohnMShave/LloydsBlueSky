@@ -21,7 +21,8 @@ import SwiftUI
 ///	3) Coordinator doesn't have to know about different View types / is decoupled from them.
 ///
 ///	4) It's less error prone since the 1-1 nature of the Page's type and the View's type is encapsulated.
-
+///
+///	SOLID `Open-closed` principle
 enum PageType: Identifiable, Hashable {
 	case locationSummary
 	case daily
