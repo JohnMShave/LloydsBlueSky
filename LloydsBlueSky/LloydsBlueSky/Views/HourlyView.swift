@@ -18,16 +18,30 @@ struct HourlyView: View {
 			Text("\(forecastContext.locationName) - Summary")
 				.font(.title)
 				.padding()
+				.background(.raisedBackground)
 			Text(dayName)
 				.font(.title)
 				.padding()
-			Button(action: {
-				coordinator.dismissCover()
-			}) {
-				Text("Dismiss")
-					.foregroundColor(.blue)
-			}
-			.padding(.bottom, 20)
+				.background(.raisedBackground)
+			dismissButton
 		}
+		.background(.raisedBackground)
 	}
+	
+	private var dismissButton: some View {
+		Button {
+			coordinator.dismissCover()
+		} label: {
+			Text("Back to Daily")
+				.font(.title3)
+				.foregroundStyle(.white)
+				.padding(16)
+				.foregroundColor(.text)
+		}
+		.frame(maxWidth: .infinity)
+		.background(.buttonBackground)
+		.clipShape(.buttonBorder)
+		.accessibilityIdentifier("locationsummary.dailybutton")
+	}
+
 }

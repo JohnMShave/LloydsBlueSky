@@ -18,6 +18,7 @@ struct DailyView: View {
 			Text("\(forecastContext.locationName) - Daily")
 				.accessibilityIdentifier("daily.text.locationName")
 				.accessibilityLabel(forecastContext.locationName)
+				.foregroundColor(.text)
 			Spacer()
 			List {
 				ForEach(viewModel.days) { day in
@@ -28,7 +29,9 @@ struct DailyView: View {
 						.listRowSeparator(.hidden)
 				}
 			}
+			.background(.raisedBackground)
 		}
 		.padding(16)
+		.background(.backgroundUnraised)
 	}
 }

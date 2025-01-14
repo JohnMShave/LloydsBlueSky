@@ -28,23 +28,28 @@ struct SummaryView: View {
 			Spacer()
 			Text("\(title)")
 				.font(.title2)
+				.foregroundColor(.text)
 			Spacer()
 			VStack {
 				Text("High")
 					.font(.title3)
+					.foregroundColor(.text)
 				Text(tempHighText)
 					.font(.title)
+					.foregroundColor(.text)
 			}
 			Spacer()
 			VStack {
 				Text("Low")
 					.font(.title3)
+					.foregroundColor(.text)
 				Text(tempLowText)
 					.font(.title)
+					.foregroundColor(.text)
 			}
 			Spacer()
 		}
-		.background(Color.secondary)
+		.background(.raisedBackground1)
 		.frame(maxWidth: .infinity)
 		.cornerRadius(8)
 		.padding(16)

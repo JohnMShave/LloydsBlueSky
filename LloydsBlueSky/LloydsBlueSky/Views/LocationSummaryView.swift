@@ -32,6 +32,7 @@ struct LocationSummaryView: View {
 			dailyViewButton
 		}
 		.padding(16)
+		.background(.backgroundUnraised)
 		.task {
 			// Check if it's first time we're landing on screen / if we need to fetch
 			if summary.0 == nil || summary.1 == nil {
@@ -84,9 +85,10 @@ struct LocationSummaryView: View {
 				.font(.title3)
 				.foregroundStyle(.white)
 				.padding(16)
+				.foregroundColor(.text)
 		}
 		.frame(maxWidth: .infinity)
-		.background(Color.blue)
+		.background(.buttonBackground)
 		.clipShape(.buttonBorder)
 		.accessibilityIdentifier("locationsummary.dailybutton")
 	}
