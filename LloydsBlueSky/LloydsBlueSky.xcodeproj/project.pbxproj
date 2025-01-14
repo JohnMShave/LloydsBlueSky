@@ -33,6 +33,7 @@
 		D1EF8F532D347B3100EB2FB3 /* Exceptions for "LloydsBlueSky" folder in "LloydsBlueSky" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Info.plist,
 				Network/LocationResponse.json,
 			);
 			target = D1F652862D2F26DD00FF79CA /* LloydsBlueSky */;
@@ -420,6 +421,7 @@
 				DEVELOPMENT_TEAM = D6K8WPTJFG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LloydsBlueSky/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +451,7 @@
 				DEVELOPMENT_TEAM = D6K8WPTJFG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LloydsBlueSky/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

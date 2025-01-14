@@ -16,7 +16,7 @@ class NetworkJSONModelRepository<Resource: NetworkJSONModelRepoResource>: Reposi
 		guard let request = resource.request else { throw NetworkError.invalidURL }
 		
 		guard let (data, response) = try await session.data(for: request) as? (Data, HTTPURLResponse),
-					response.isValidStatusCode
+					response.isValid
 		else {
 			throw NetworkError.networkError
 		}
@@ -30,7 +30,7 @@ class NetworkJSONModelRepository<Resource: NetworkJSONModelRepoResource>: Reposi
 }
 
 private extension HTTPURLResponse {
-	var isValidStatusCode: Bool { 200..<300 ~= statusCode }
+	var isValid: Bool { 200..<300 ~= statusCode }
 }
 
 //	func convertJSONToData<T: Encodable>(item: T) -> Data? {

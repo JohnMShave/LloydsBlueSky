@@ -12,7 +12,7 @@ struct LatLon: Equatable, Decodable {
 }
 
 struct LatLonResource: NetworkJSONModelRepoResource {
-	typealias Model = LatLon
+	typealias Model = [LatLon]
 	
 	let locationName: String
 
@@ -23,21 +23,23 @@ struct LatLonResource: NetworkJSONModelRepoResource {
 	}
 }
 
-/// Very simple mocking without need to mock network clients for every type model being fetched.
-/// We can simply inject this into a view model and no further work is required to see that the view
-/// model behaves correctly based on mock data.
+/// Very simple mocking without need to mock network clients for every model type being fetched.
+/// We can simply inject this into a view model to see that it behaves correctly based on mock data.
+///
 /// This is achieved by somewhat turning conventional approach on it's head since it's now a
-/// `Resource` (or rather the data used to fetch a model) that implicitly knows `how` to fetch
-/// that model which is why we only need to mock the Resource itself.
-/// By encapsulating the data used to `obtain` a model and the logic to `obtain` the model,
+/// `Resource` - the data used to fetch a model - that implicitly knows `how` to fetch that
+/// model which is why we need to mock the Resource itself.
+///
+/// By encapsulating the data used to `obtain` a model with the logic to `obtain` the model,
 /// we abstract that `obtaining` logic out of the repository meaning we don't need boiler-plate
 /// variants of a repo per `instance` of a resource `Type` or its respective mocks and tests.
-struct MockLatLonResource: NetworkJSONModelRepoResource {
-	typealias Model = LatLon
+///
+/// Here we can create a Mock that doesn't need to be "networkable" so no need for URL as it
+/// wont invoke a network repo fetch.
+struct MockLatLonResource: RepoResource {
+	typealias Model = [LatLon]
 	
-	var url: URL?
-	
-	func obtainModel() -> LatLon {
-		LatLon(lat: 1, lon: 1)
+	func obtainModel() -> [LatLon] {
+		[LatLon(lat: 1, lon: 1)]
 	}
 }

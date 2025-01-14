@@ -7,33 +7,6 @@
 
 import Foundation
 
-enum FetchState<Model: Equatable>: Equatable {
-	case idle
-	case fetching(resource: any RepoResource)
-	case fetched(resource: any RepoResource, model: Model)
-	case failed(resource: any RepoResource, error: any Error)
-	
-	static func ==(lhs: FetchState, rhs: FetchState) -> Bool {
-		switch (lhs, rhs) {
-		case (.fetching, .fetching), (.failed, .failed):
-			return true
-		case (let .fetched(_, modelLhs), let .fetched(_, modelRhs)):
-			return modelLhs == modelRhs
-		default:
-			return false
-		}
-	}
-	
-	var model: Model? {
-		switch self {
-		case .fetched(resource: let resource, model: let model):
-			return model
-		default:
-			return nil
-		}
-	}
-}
-
 /// By templating not only the resource but the repository, we have really concise & readable code in our
 /// viewModel which can be very easily mocked by mocking the resource which is trivial to setup.
 ///
@@ -45,43 +18,56 @@ enum FetchState<Model: Equatable>: Equatable {
 /// This is an example of inverse dependancy at play, where our owning object declares the interface and
 /// it's usage (in this case `any RepoResource`) and whatever we want to supply our models must
 /// adhere to that, as opposed to this maybe needing to adhere to a Resource's delegate implementation.
+@MainActor
 class LocationSummaryViewModel: ObservableObject {
 	let latLonResource: any RepoResource
-	let dailyResource: any RepoResource
+	var forecastResource: any FullForecastResource
 	
 	@Published var latLonFetchState = FetchState<LatLon>.idle
-	@Published var dailyForecastsFetchState = FetchState<[DailyForecast]>.idle
-	
-	var summary: (tempHigh: Double, tempLow: Double)? {
-		guard let dailyForecast = dailyForecastsFetchState.model?.first else { return nil }
-		return (dailyForecast.maxTemp, dailyForecast.minTemp)
-	}
+	@Published var forecastFetchState = FetchState<FullForecast>.idle
+
+	var summary: (tempHigh: Double?, tempLow: Double?) = (nil, nil)
 		
 	init(latLonResource: any RepoResource = LatLonResource(locationName: "London"),
-			 dailyResource: any RepoResource = DailyResource(latLon: nil)
+			 forecastResource: any FullForecastResource = ForecastResource(latLon: nil)
 	) {
 		self.latLonResource = latLonResource
-		self.dailyResource = dailyResource
+		self.forecastResource = forecastResource
 	}
 	
 	func getLatLon() async {
 		latLonFetchState = .fetching(resource: latLonResource)
 		do {
-			let latLon = try await latLonResource.obtainModel() as! LatLon
+			let latLons = try await latLonResource.obtainModel() as! [LatLon]
+			guard let latLon = latLons.first else {
+				latLonFetchState = .failed(resource: latLonResource, error: NetworkError.invalidResponse)
+				return
+			}
 			latLonFetchState = .fetched(resource: latLonResource, model: latLon)
-			await getDaily()
+			forecastResource.latLon = latLon
+			await getForecast()
 		} catch {
 			latLonFetchState = .failed(resource: latLonResource, error: error)
 		}
 	}
 	
-	func getDaily() async {
-		dailyForecastsFetchState = .fetching(resource: dailyResource)
+	func getForecast() async {
+		forecastFetchState = .fetching(resource: forecastResource)
 		do {
-			let dailyForecasts = try await dailyResource.obtainModel() as! [DailyForecast]
-			dailyForecastsFetchState = .fetched(resource: dailyResource, model: dailyForecasts)
+			let fullForecast = try await forecastResource.obtainModel()
+			
+			guard let summaryForecast = fullForecast.daily.first?.temp else {
+				forecastFetchState = .failed(resource: forecastResource, error: NetworkError.invalidResponse)
+				return
+			}
+			forecastFetchState = .fetched(resource: forecastResource, model: fullForecast)
+			summary = (summaryForecast.max.kelvinAsCelsius, summaryForecast.min.kelvinAsCelsius)
 		} catch {
-			dailyForecastsFetchState = .failed(resource: dailyResource, error: error)
+			forecastFetchState = .failed(resource: forecastResource, error: error)
 		}
 	}
+}
+
+private extension Double {
+	var kelvinAsCelsius: Double { self - 273.15 }
 }

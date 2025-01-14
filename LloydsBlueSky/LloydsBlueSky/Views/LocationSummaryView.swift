@@ -13,24 +13,68 @@ struct LocationSummaryView: View {
 	@EnvironmentObject private var forecastContext: ForecastContext
 	
 	@ObservedObject private var viewModel = LocationSummaryViewModel()
-	
-	@State private var summary: (tempHigh: Double, tempLow: Double)?
+	@State private var summary: (Double?, Double?)
+	@State private var isLoading = true
 	
 	var body: some View {
+		
 		VStack {
 			Text("\(forecastContext.locationName) - Summary")
-			Spacer()
-			SummaryView(title: "Current", tempHigh: 20, tempLow: 10)
-				.onChange(of: viewModel.dailyForecastsFetchState) {
-					summary = viewModel.summary
-				}
-			Spacer()
+			if isLoading {
+				ProgressView()
+			} else {
+				Spacer()
+				SummaryView(title: "Current", tempHigh: summary.0, tempLow: summary.1)
+				Spacer()
+			}
 			dailyViewButton
 		}
 		.padding(16)
+		.task {
+			// Check if it's first time we're landing on screen / if we need to fetch
+			if summary.0 == nil || summary.1 == nil {
+				isLoading = true
+				await viewModel.getLatLon()
+			}
+		}
+		.onChange(of: viewModel.latLonFetchState) {
+			latLonDidChange()
+		}
+		.onChange(of: viewModel.forecastFetchState) {
+			forecastDidChange()
+		}
 	}
 	
-	var dailyViewButton: some View {
+	private func latLonDidChange() {
+		switch viewModel.latLonFetchState {
+		case .idle, .fetched:
+			break
+		case .fetching:
+			isLoading = true
+		case .failed(_, error: let error):
+			print("Show error - \(error.localizedDescription)")
+			isLoading = false
+		}
+	}
+
+	private func forecastDidChange() {
+		switch viewModel.forecastFetchState {
+		case .idle:
+			break
+		case .fetching(resource: _):
+			// Don't need to do this but future proofing against getForecast() getting called
+			// again without invoking getLatLon (e.g. after a refactor adding a refresh).
+			isLoading = true
+		case .fetched(resource: _, model: _):
+			summary = viewModel.summary
+			isLoading = false
+		case .failed(_, error: let error):
+			print("Show error - \(error.localizedDescription)")
+			isLoading = false
+		}
+	}
+	
+	private var dailyViewButton: some View {
 		Button {
 			coordinator.presentPageType(.daily, usingStyle: .screen)
 		} label: {

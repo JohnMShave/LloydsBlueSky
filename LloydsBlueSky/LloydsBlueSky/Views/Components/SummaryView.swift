@@ -10,9 +10,19 @@ import SwiftUI
 struct SummaryView: View {
 	
 	let title: String
-	let tempHigh: Int
-	let tempLow: Int
+	let tempHigh: Double?
+	let tempLow: Double?
 	
+	var tempHighText: String {
+		guard let tempHigh else { return "-" }
+		return "\(Int(tempHigh.rounded()))"
+	}
+
+	var tempLowText: String {
+		guard let tempLow else { return "-" }
+		return "\(Int(tempLow.rounded()))"
+	}
+
 	var body: some View {
 		HStack {
 			Spacer()
@@ -22,14 +32,14 @@ struct SummaryView: View {
 			VStack {
 				Text("High")
 					.font(.title3)
-				Text("\(tempHigh)")
+				Text(tempHighText)
 					.font(.title)
 			}
 			Spacer()
 			VStack {
 				Text("Low")
 					.font(.title3)
-				Text("\(tempLow)")
+				Text(tempLowText)
 					.font(.title)
 			}
 			Spacer()
