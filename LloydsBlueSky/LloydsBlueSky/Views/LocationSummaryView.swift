@@ -20,6 +20,8 @@ struct LocationSummaryView: View {
 		
 		VStack {
 			Text("\(forecastContext.locationName) - Summary")
+				.accessibilityIdentifier("locationsummary.text.locationname")
+				.accessibilityLabel(forecastContext.locationName)
 			if isLoading {
 				ProgressView()
 			} else {
@@ -86,5 +88,6 @@ struct LocationSummaryView: View {
 		.frame(maxWidth: .infinity)
 		.background(Color.blue)
 		.clipShape(.buttonBorder)
+		.accessibilityIdentifier("locationsummary.dailybutton")
 	}
 }

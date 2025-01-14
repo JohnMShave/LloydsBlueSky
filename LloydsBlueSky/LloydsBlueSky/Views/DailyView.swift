@@ -15,6 +15,9 @@ struct DailyView: View {
 
 	var body: some View {
 		VStack {
+			Text("\(forecastContext.locationName) - Daily")
+				.accessibilityIdentifier("daily.text.locationName")
+				.accessibilityLabel(forecastContext.locationName)
 			Spacer()
 			List {
 				ForEach(viewModel.days) { day in
