@@ -32,25 +32,3 @@ class NetworkJSONModelRepository<Resource: NetworkJSONModelRepoResource>: Reposi
 private extension HTTPURLResponse {
 	var isValid: Bool { 200..<300 ~= statusCode }
 }
-
-//	func convertJSONToData<T: Encodable>(item: T) -> Data? {
-//			do {
-//					let encodedJSON = try JSONEncoder().encode(item)
-//					return encodedJSON
-//			} catch {
-//					return nil
-//			}
-//	}
-//
-//	let json = """
-//		[
-//			{
-//				"name": "London",
-//				"lat": 37.1289771,
-//				"lon": -84.0832646,
-//				"country": "US",
-//				"state": "Kentucky"
-//			}
-//		]
-//	"""
-//	resource.modelWithJSONData(convertJSONToData(item: json)!)
