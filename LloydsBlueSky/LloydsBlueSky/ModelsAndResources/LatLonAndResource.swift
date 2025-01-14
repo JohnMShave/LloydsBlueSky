@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LatLon: Equatable, Decodable {
+struct LatLon: Equatable, Decodable, Hashable {
 	var lat, lon: Double
 }
 

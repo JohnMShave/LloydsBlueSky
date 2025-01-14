@@ -23,7 +23,7 @@ import SwiftUI
 ///	4) It's less error prone since the 1-1 nature of the Page's type and the View's type is encapsulated.
 enum PageType: Identifiable, Hashable {
 	case locationSummary
-	case daily
+	case daily(latLon: LatLon)
 	case hourly(day: String)
 	case searchResults
 	
@@ -31,8 +31,8 @@ enum PageType: Identifiable, Hashable {
 		switch self {
 		case .locationSummary:
 			AnyView(LocationSummaryView())
-		case .daily:
-			AnyView(DailyView())
+		case .daily(let latLon):
+			AnyView(DailyView(latLon: latLon))
 		case .hourly(let dayName):
 			AnyView(HourlyView(dayName: dayName))
 		case .searchResults:

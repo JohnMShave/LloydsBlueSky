@@ -68,6 +68,7 @@ class LocationSummaryViewModel: ObservableObject {
 	}
 }
 
-private extension Double {
+/// This should live in a more obvious shared place
+extension Double {
 	var kelvinAsCelsius: Double { self - 273.15 }
 }

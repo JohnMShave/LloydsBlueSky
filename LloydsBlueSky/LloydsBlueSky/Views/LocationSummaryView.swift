@@ -15,6 +15,7 @@ struct LocationSummaryView: View {
 	@ObservedObject private var viewModel = LocationSummaryViewModel()
 	@State private var summary: (Double?, Double?)
 	@State private var isLoading = true
+	@State var latLon: LatLon?
 	
 	var body: some View {
 		
@@ -71,6 +72,7 @@ struct LocationSummaryView: View {
 		case .fetched(resource: _, model: _):
 			summary = viewModel.summary
 			isLoading = false
+			latLon = viewModel.latLonFetchState.model
 		case .failed(_, error: let error):
 			print("Show error - \(error.localizedDescription)")
 			isLoading = false
@@ -79,7 +81,9 @@ struct LocationSummaryView: View {
 	
 	private var dailyViewButton: some View {
 		Button {
-			coordinator.presentPageType(.daily, usingStyle: .screen)
+			if let latLon {
+				coordinator.presentPageType(.daily(latLon: latLon), usingStyle: .screen)
+			}
 		} label: {
 			Text("Daily Summary")
 				.font(.title3)

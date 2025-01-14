@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Stubbed out purely to show sheet navigation when tapping on a day's summary in DailyView
 struct HourlyView: View {
 	@EnvironmentObject private var coordinator: Coordinator
 	@EnvironmentObject private var forecastContext: ForecastContext
@@ -15,7 +16,7 @@ struct HourlyView: View {
 	
 	var body: some View {
 		VStack {
-			Text("\(forecastContext.locationName) - Summary")
+			Text("\(forecastContext.locationName) - Hourly")
 				.font(.title)
 				.padding()
 				.background(.raisedBackground)
